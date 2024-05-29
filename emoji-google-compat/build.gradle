@@ -21,4 +21,4 @@ dependencies {
   api "androidx.emoji:emoji-appcompat:1.1.0"
 }
 
-apply plugin: "com.vanniktech.maven.publish"
+//apply plugin: "com.vanniktech.maven.publish"

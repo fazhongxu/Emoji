@@ -1,7 +1,9 @@
 include ':app'
 include ':emoji'
 include ':emoji-google'
-include ':emoji-google-compat'
+//include ':emoji-google-compat'
+///Users/xxl/.gradle/caches/transforms-2/files-2.1/fab5515244010c7276ffcf07afe5a0e2/core-1.7.0/res/values/values.xml:105:5-114:25: AAPT: error: resource android:attr/lStar not found.
+
 include ':emoji-ios'
 include ':emoji-material'
 include ':emoji-twitter'

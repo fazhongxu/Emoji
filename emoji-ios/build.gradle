@@ -24,4 +24,4 @@ dependencies {
   testImplementation rootProject.ext.testing.junit
 }
 
-apply plugin: "com.vanniktech.maven.publish"
+//apply plugin: "com.vanniktech.maven.publish"
