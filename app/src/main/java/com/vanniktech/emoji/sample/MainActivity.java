@@ -32,6 +32,9 @@ import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.provider.FontRequest;
+import androidx.emoji.text.EmojiCompat;
+import androidx.emoji.text.FontRequestEmojiCompatConfig;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,6 +43,7 @@ import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.facebook.FacebookEmojiProvider;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
+import com.vanniktech.emoji.googlecompat.GoogleCompatEmojiProvider;
 import com.vanniktech.emoji.ios.IosEmojiProvider;
 import com.vanniktech.emoji.material.MaterialEmojiLayoutFactory;
 import com.vanniktech.emoji.twitter.TwitterEmojiProvider;
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
   EmojiEditText editText;
   ViewGroup rootView;
   ImageView emojiButton;
-//  EmojiCompat emojiCompat;
+  EmojiCompat emojiCompat;
 
   @Override @SuppressLint("SetTextI18n") protected void onCreate(final Bundle savedInstanceState) {
     getLayoutInflater().setFactory2(new MaterialEmojiLayoutFactory((LayoutInflater.Factory2) getDelegate()));
@@ -153,14 +157,14 @@ public class MainActivity extends AppCompatActivity {
           recreate();
           return true;
         } else if (itemId == R.id.menuEmojiProviderGoogleCompat) {
-//          if (emojiCompat == null) {
-//            emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
-//                new FontRequest("com.google.android.gms.fonts", "com.google.android.gms",
-//                    "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
-//            ).setReplaceAll(true));
-//          }
+          if (emojiCompat == null) {
+            emojiCompat = EmojiCompat.init(new FontRequestEmojiCompatConfig(this,
+                new FontRequest("com.google.android.gms.fonts", "com.google.android.gms",
+                    "Noto Color Emoji Compat", R.array.com_google_android_gms_fonts_certs)
+            ).setReplaceAll(true));
+          }
           EmojiManager.destroy();
-//          EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
+          EmojiManager.install(new GoogleCompatEmojiProvider(emojiCompat));
           recreate();
           return true;
         } else {
